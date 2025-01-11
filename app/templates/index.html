@@ -95,7 +95,7 @@
             <button type="submit" class="btn btn-primary w-100 mt-3">Predict</button>
         </form>
         {% if prediction %}
-        <div class="result">
+        <div class="result {% if prediction == 'Approved' %}text-success{% elif prediction == 'Rejected' %}text-danger{% endif %}">
             Prediction: {{ prediction }}
         </div>
         {% endif %}
