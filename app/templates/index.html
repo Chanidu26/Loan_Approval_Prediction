@@ -100,5 +100,28 @@
         </div>
         {% endif %}
     </div>
+    <script>
+        // Update dependents value display
+        const dependentsSlider = document.getElementById('dependents');
+        const dependentsValue = document.getElementById('dependentsValue');
+        dependentsSlider.addEventListener('input', () => {
+            dependentsValue.textContent = `Value: ${dependentsSlider.value}`;
+        });
+    
+        // Update loan term value display
+        const loanTermSlider = document.getElementById('loanTerm');
+        const loanTermValue = document.getElementById('loanTermValue');
+        loanTermSlider.addEventListener('input', () => {
+            loanTermValue.textContent = `Value: ${loanTermSlider.value}`;
+        });
+    
+        // Update CIBIL score value display
+        const cibilScoreSlider = document.getElementById('cibilScore');
+        const cibilScoreValue = document.getElementById('cibilScoreValue');
+        cibilScoreSlider.addEventListener('input', () => {
+            cibilScoreValue.textContent = `Value: ${cibilScoreSlider.value}`;
+        });
+    </script>
+    
 </body>
 </html>
