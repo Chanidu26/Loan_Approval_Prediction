@@ -5,16 +5,16 @@ import pandas as pd
 # Initialize Flask app
 app = Flask(__name__)
 
-# Load the scaler
-with open('scaler_model.pkl', 'rb') as scaler_file:
+# Correct way to load models with pickle
+with open('model/scaler_model.pkl', 'rb') as scaler_file:
     scaler = pickle.load(scaler_file)
 
-# Load the SVM model
-with open('SVM_model.pkl', 'rb') as svm_file:
+with open('model/SVM_model.pkl', 'rb') as svm_file:
     svm_model = pickle.load(svm_file)
 
-with open('logistic_model.pkl', 'rb') as logistic_file:
+with open('model/logistic_model.pkl', 'rb') as logistic_file:
     logistic_model = pickle.load(logistic_file)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
