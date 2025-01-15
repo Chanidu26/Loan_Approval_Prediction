@@ -24,25 +24,20 @@ def index():
             no_of_dependents = int(request.form['no_of_dependents'])
             education = 1 if request.form['education'] == 'Graduate' else 0
             self_employed = 1 if request.form['self_employed'] == 'Yes' else 0
-            income_annum = int(request.form['income_annum'])
+            annual_income = int(request.form['annual_income'])
             loan_amount = int(request.form['loan_amount'])
             loan_term = int(request.form['loan_term'])
             cibil_score = int(request.form['cibil_score'])
-            residential_assets_value = int(request.form['residential_assets_value'])
-            commercial_assets_value = int(request.form['commercial_assets_value'])
-            luxury_assets_value = int(request.form['luxury_assets_value'])
-            bank_asset_value = int(request.form['bank_asset_value'])
+            assets_value = int(request.form['assets'])
 
             # Create a DataFrame
             feature_names = [
-                'no_of_dependents', 'education', 'self_employed', 'income_annum',
-                'loan_amount', 'loan_term', 'cibil_score', 'residential_assets_value',
-                'commercial_assets_value', 'luxury_assets_value', 'bank_asset_value'
+                'no_of_dependents', 'education', 'self_employed', 'annual_income',
+                'loan_amount', 'loan_term', 'cibil_score', 'assets'
             ]
             df = pd.DataFrame([[
-                no_of_dependents, education, self_employed, income_annum, loan_amount,
-                loan_term, cibil_score, residential_assets_value, commercial_assets_value,
-                luxury_assets_value, bank_asset_value
+                no_of_dependents, education, self_employed, annual_income, loan_amount,
+                loan_term, cibil_score, assets_value
             ]], columns=feature_names)
 
             # Scale the data
