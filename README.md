@@ -6,10 +6,16 @@ This repository contains the code and documentation for a machine learning proje
 
 The primary goal of this project is to develop a model that predicts whether a loan application will be approved or not. This prediction can help financial institutions streamline their loan approval processes and minimize risks.
 
-### Features
-- **Model Training:** Utilizes a variety of machine learning algorithms to determine the best fit for the dataset.
-- **Feature Engineering:** Includes handling missing values, encoding categorical variables, and feature scaling.
-- **Model Evaluation:** Measures performance using metrics like accuracy, precision, recall, and F1-score.
+### Implementation
+- **Import Dataset:** Import the dataset from Kaggle.  
+- **Exploratory Data Analysis (EDA):** Analyze the dataset structure, visualize relationships between features, and identify patterns or anomalies.  
+- **Data Preprocessing:** Handle missing values, encode categorical variables, and scale features to ensure consistency.  
+- **Feature Engineering:** Select relevant features, remove redundant ones, and create new features to enhance model performance.  
+- **Data Splitting:** Divide the dataset into training and testing sets to evaluate model performance.  
+- **Model Training:** Utilize SVM and Logistic Regression machine learning algorithms to determine the best fit for the dataset.  
+- **Cross-Validation:** Perform cross-validation to ensure the model generalizes well to unseen data.  
+- **Model Evaluation:** Measure performance using metrics like accuracy, precision, recall, F1-score, and ROC-AUC.  
+- **Model Comparison:** Compare the performance of SVM and Logistic Regression based on evaluation metrics and select the best model.
 
 ## Data Information
 The dataset used for this project contains information on applicants such as:
@@ -31,16 +37,20 @@ The dataset is publicly available and can be accessed [here](#).
 - **Libraries:** Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
 - **Jupyter Notebook:** For data analysis and model development
 
+## Algorithms Used and Accuracy Performance
+- **SVM (Support Vector Machine)** - Testing (93%) and Training (94%)
+- **Logistic Regression** - Testing (91%) and Training (92%)
+
 ## Installation
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/loan-approval-ml.git
+   git clone https://github.com/Chanidu26/Loan_Approval_Prediction.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd loan-approval-ml
+   cd webapp
    ```
 
 3. Install the required dependencies:
@@ -53,7 +63,7 @@ The dataset is publicly available and can be accessed [here](#).
 1. Run the application in the `/webapp` directory.
 2. Run the Jupyter Notebook to preprocess data and train the model:
    ```bash
-   jupyter notebook
+   python app.py
    ```
 3. Evaluate the model and save the trained model for deployment.
 
