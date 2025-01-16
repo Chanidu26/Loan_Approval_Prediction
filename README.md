@@ -1,6 +1,6 @@
 # Loan Approval Machine Learning Project
 
-This repository contains the code and documentation for a machine learning project focused on predicting loan approval status based on various features such as income, loan amount, credit history, and more.
+This repository contains the code and documentation for a machine learning project focused on predicting loan approval status based on various features such as income, education, loan amount, no of dependants and more.
 
 ## Project Overview
 
@@ -11,17 +11,16 @@ The primary goal of this project is to develop a model that predicts whether a l
 - **Feature Engineering:** Includes handling missing values, encoding categorical variables, and feature scaling.
 - **Model Evaluation:** Measures performance using metrics like accuracy, precision, recall, and F1-score.
 
-## Dataset
+## Data Information
 The dataset used for this project contains information on applicants such as:
-- **Gender**
-- **Marital Status**
+- **No of dependents**
 - **Education**
 - **Applicant Income**
-- **Coapplicant Income**
+- **self employability**
 - **Loan Amount**
 - **Loan Amount Term**
-- **Credit History**
-- **Property Area**
+- **cibil score**
+- **Assets**
 - **Loan Status**
 
 ### Data Source
@@ -51,7 +50,7 @@ The dataset is publicly available and can be accessed [here](#).
 
 ## Usage
 
-1. Prepare the dataset by placing it in the `data/` directory.
+1. Run the application in the `/webapp` directory.
 2. Run the Jupyter Notebook to preprocess data and train the model:
    ```bash
    jupyter notebook
@@ -61,22 +60,21 @@ The dataset is publicly available and can be accessed [here](#).
 ## File Structure
 ```
 loan-approval-ml/
-├── data/
-├── notebooks/
-│   ├── data_preprocessing.ipynb
-│   ├── model_training.ipynb
-│   └── model_evaluation.ipynb
-├── models/
-├── src/
-│   ├── preprocessing.py
-│   ├── training.py
-│   └── evaluation.py
-├── requirements.txt
+├── dataset/
+│   ├── loan_approval_dataset.csv
+├── notebook/
+│   ├── Loan_Approvel_Prediction.ipynb
+├── webapp/
+│   ├── env
+│   ├── model
+│   ├── templates
+│   ├── app.py
+│   ├── requirements.txt
 └── README.md
 ```
 
 ## Future Enhancements
-- Deploying the model using Flask or FastAPI.
+- Deploying the model using Flask
 - Integrating with a front-end application for real-time predictions.
 - Using advanced techniques like hyperparameter tuning and ensemble methods to improve model accuracy.
 
