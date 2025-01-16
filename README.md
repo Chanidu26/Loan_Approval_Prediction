@@ -6,7 +6,7 @@ This repository contains the code and documentation for a machine learning proje
 
 The primary goal of this project is to develop a model that predicts whether a loan application will be approved or not. This prediction can help financial institutions streamline their loan approval processes and minimize risks.
 
-### Implementation
+## Implementation
 - **Import Dataset:** Import the dataset from Kaggle.  
 - **Exploratory Data Analysis (EDA):** Analyze the dataset structure, visualize relationships between features, and identify patterns or anomalies.  
 - **Data Preprocessing:** Handle missing values, encode categorical variables, and scale features to ensure consistency.  
@@ -84,8 +84,7 @@ loan-approval-ml/
 ```
 
 ## Future Enhancements
-- Deploying the model using Flask
-- Integrating with a front-end application for real-time predictions.
+- Deploying the model using Flask.
 - Using advanced techniques like hyperparameter tuning and ensemble methods to improve model accuracy.
 
 ## Contributing
