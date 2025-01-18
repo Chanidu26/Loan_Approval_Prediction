@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import pickle
-import pandas as pd
+import numpy as np
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -31,20 +31,16 @@ def index():
             assets_value = int(request.form['assets'])
 
             # Create a DataFrame
-            feature_names = [
-                'no_of_dependents', 'education', 'self_employed', 'annual_income',
-                'loan_amount', 'loan_term', 'cibil_score', 'assets'
-            ]
-            df = pd.DataFrame([[
-                no_of_dependents, education, self_employed, annual_income, loan_amount,
-                loan_term, cibil_score, assets_value
-            ]], columns=feature_names)
+            features = np.array([
+                no_of_dependents, education, self_employed, annual_income,
+                loan_amount, loan_term, cibil_score, assets_value
+            ]).reshape(1, -1)
 
             # Scale the data
-            df_scaled = scaler.transform(df)
+            features_scaled = scaler.transform(features)
 
             # Predict
-            prediction = svm_model.predict(df_scaled)
+            prediction = svm_model.predict(features_scaled)
             result = "Approved" if prediction[0] == 1 else "Rejected"
 
             return render_template('index.html', prediction=result)
