@@ -29,7 +29,7 @@ def index():
             loan_term = int(request.form['loan_term'])
             cibil_score = int(request.form['cibil_score'])
             assets_value = int(request.form['assets'])
-
+            model = svm_model if request.form['model'] == 'Support Vector Machine' else logistic_model
             # Create a DataFrame
             features = np.array([
                 no_of_dependents, education, self_employed, annual_income,
@@ -40,7 +40,7 @@ def index():
             features_scaled = scaler.transform(features)
 
             # Predict
-            prediction = svm_model.predict(features_scaled)
+            prediction = model.predict(features_scaled)
             result = "Approved" if prediction[0] == 1 else "Rejected"
 
             return render_template('index.html', prediction=result)

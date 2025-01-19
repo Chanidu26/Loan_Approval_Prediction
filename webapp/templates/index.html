@@ -7,11 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .form-container {
-            margin: 50px auto;
-            padding-top: 10px;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding: 40px;
             border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .form-title {
             text-align: center;
@@ -21,14 +19,15 @@
         .form-group {
             margin-bottom: 15px;
         }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
         .result {
             margin-top: 20px;
             font-weight: bold;
             color: green;
+        }
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 30px;
+            }
         }
     </style>
 </head>
@@ -36,46 +35,61 @@
     <div class="container form-container">
         <h2 class="form-title">Loan Approval Prediction</h2>
         <form id="loanForm" method="POST">
-            <div class="form-group">
-                <label for="dependents">Number of Dependents</label>
-                <input type="range" id="dependents" name="no_of_dependents" class="form-range" min="0" max="5" step="1" value="0">
-                <small id="dependentsValue" class="form-text">Value: 0</small>
-            </div>
-            <div class="form-group">
-                <label for="education">Education</label>
-                <select id="education" name="education" class="form-control">
-                    <option value="1">Graduate</option>
-                    <option value="0">Not Graduate</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="selfEmployed">Self Employed</label>
-                <select id="selfEmployed" name="self_employed" class="form-control">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="income">Annual Income</label>
-                <input type="number" id="income" name="annual_income" class="form-control" min="0">
-            </div>
-            <div class="form-group">
-                <label for="loanAmount">Loan Amount</label>
-                <input type="number" id="loanAmount" name="loan_amount" class="form-control" min="0">
-            </div>
-            <div class="form-group">
-                <label for="loanTerm">Loan Term (Months)</label>
-                <input type="range" id="loanTerm" name="loan_term" class="form-range" min="1" max="20" step="1" value="1">
-                <small id="loanTermValue" class="form-text">Value: 1</small>
-            </div>
-            <div class="form-group">
-                <label for="cibilScore">CIBIL Score</label>
-                <input type="range" id="cibilScore" name="cibil_score" class="form-range" min="1" max="1000" step="1" value="500">
-                <small id="cibilScoreValue" class="form-text">Value: 500</small>
-            </div>
-            <div class="form-group">
-                <label for="residentialAssets">Assets Value</label>
-                <input type="number" id="residentialAssets" name="assets" class="form-control" min="0">
+            <div class="row">
+                <!-- First Column -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="dependents">Number of Dependents</label>
+                        <input type="range" id="dependents" name="no_of_dependents" class="form-range" min="0" max="5" step="1" value="0">
+                        <small id="dependentsValue" class="form-text">Value: 0</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="education">Education</label>
+                        <select id="education" name="education" class="form-control">
+                            <option value="1">Graduate</option>
+                            <option value="0">Not Graduate</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selfEmployed">Self Employed</label>
+                        <select id="selfEmployed" name="self_employed" class="form-control">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="income">Annual Income</label>
+                        <input type="number" id="income" name="annual_income" class="form-control" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="loanAmount">Loan Amount</label>
+                        <input type="number" id="loanAmount" name="loan_amount" class="form-control" min="0">
+                    </div>
+                </div>
+                <!-- Second Column -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="loanTerm">Loan Term (Months)</label>
+                        <input type="range" id="loanTerm" name="loan_term" class="form-range" min="1" max="20" step="1" value="1">
+                        <small id="loanTermValue" class="form-text">Value: 1</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="cibilScore">CIBIL Score</label>
+                        <input type="range" id="cibilScore" name="cibil_score" class="form-range" min="1" max="1000" step="1" value="500">
+                        <small id="cibilScoreValue" class="form-text">Value: 500</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="residentialAssets">Assets Value</label>
+                        <input type="number" id="residentialAssets" name="assets" class="form-control" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="modelSelection">Select a Model</label>
+                        <select id="modelSelection" name="model" class="form-control">
+                            <option>Support Vector Machine</option>
+                            <option>Logistic Regression</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary w-100 mt-3">Predict</button>
         </form>
@@ -107,6 +121,5 @@
             cibilScoreValue.textContent = `Value: ${cibilScoreSlider.value}`;
         });
     </script>
-    
 </body>
 </html>
