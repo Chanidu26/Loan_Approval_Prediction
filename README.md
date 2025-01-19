@@ -1,6 +1,6 @@
 # Loan Approval Machine Learning Project
 
-![Loan Prediction Form](https://github.com/Chanidu26/Loan_Approval_Prediction/tree/main/figures/WebApp.png)
+![Loan Prediction Model](https://raw.githubusercontent.com/Chanidu26/Loan_Approval_Prediction/refs/heads/main/figures/WebApp.png)
 
 This repository contains the code and documentation for a machine learning project focused on predicting loan approval status based on various features such as income, education, loan amount, no of dependants and more.
 
