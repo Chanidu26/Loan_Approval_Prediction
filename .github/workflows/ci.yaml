@@ -1,4 +1,4 @@
-name: Dockerize Python App
+name: Dockerize ML App
 
 on:
   push:
@@ -32,5 +32,3 @@ jobs:
     # Push the Docker image to Docker Hub
     - name: Push Docker image to Docker Hub
       run: docker push ${{ secrets.DOCKER_USERNAME }}/ml-app:latest
-
-   
