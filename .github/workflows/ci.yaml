@@ -32,3 +32,25 @@ jobs:
     # Push the Docker image to Docker Hub
     - name: Push Docker image to Docker Hub
       run: docker push ${{ secrets.DOCKER_USERNAME }}/ml-app:latest
+
+    - name: Deploy to EC2
+      run: |
+        # Save the private key to a file
+        echo "${{ secrets.EC2_KEY }}" > ec2-key.pem
+        chmod 600 ec2-key.pem
+
+        # SSH into EC2 instance
+        ssh -o StrictHostKeyChecking=no -i ec2-key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          # Stop and remove any running container
+          docker stop ml-app || true
+          docker rm ml-app || true
+
+          # Pull the latest Docker image
+          docker pull ${{ secrets.DOCKER_USERNAME }}/ml-app:latest
+
+          # Run the Docker container
+          docker run -d --name ml-app -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/ml-app:latest
+        EOF
+
+        # Clean up the private key file
+        rm -f ec2-key.pem
