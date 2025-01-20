@@ -26,6 +26,7 @@ jobs:
 
     # Build the Docker image
     - name: Build Docker image
+      working-directory: ./webapp
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/ml-app:latest .
 
     # Push the Docker image to Docker Hub
